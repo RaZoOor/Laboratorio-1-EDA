@@ -2,13 +2,21 @@
 #include <stdio.h>
 #include <string.h>
 
-int obtainMatrixSize(FILE *matrixFile)   //deseo parar el puntero hacia el archivo
+int** obtainEmptyMatrix(FILE *matrixFile)   //deseo parar el puntero hacia el archivo
 {
   int matrixSize;
-  char size[256];
+  char size [ 256 ];
+  int** matrix;
+
   fscanf ( matrixFile, "%s", size ); // save matrix size from the file
-  matrixSize = atoi(size);
-  return matrixSize;
+  matrixSize = atoi ( size );
+
+  matrix = malloc ( matrixSize * sizeof ( int * ) );
+
+  for ( int i = 0; i < matrixSize; i++ )
+    matrix[i] = malloc ( 4 * sizeof ( int ) );
+
+  return matrix;
 }
 
 int main ()
@@ -19,13 +27,7 @@ int main ()
 
   matrixFile = fopen ( "matriz.in", "r" ); // read mode
 
-  fscanf ( matrixFile, "%s", size ); // save matrix size from the file
-  matrixSize = atoi(size);
-
-  matrix = malloc ( matrixSize * sizeof ( int * ) );
-
-  for ( i = 0; i < matrixSize; i++ )
-    matrix[i] = malloc ( 4 * sizeof ( int ) );
+  matrix = obtainEmptyMatrix ( matrixFile );
 
   fclose ( matrixFile );
 
