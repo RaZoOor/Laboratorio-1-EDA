@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int** obtainEmptyMatrix(FILE *matrixFile)   
+int** createEmptyMatrix(FILE *matrixFile)   
 {
   int matrixSize;
   char size [ 256 ];
@@ -27,7 +27,7 @@ int main ()
 
   matrixFile = fopen ( "matriz.in", "r" ); // read mode
 
-  matrix = obtainEmptyMatrix ( matrixFile );
+  matrix = createEmptyMatrix ( matrixFile );
 
   fclose ( matrixFile );
 
