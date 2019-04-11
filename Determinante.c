@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int** obtainEmptyMatrix(FILE *matrixFile)   //deseo parar el puntero hacia el archivo
+int** obtainEmptyMatrix(FILE *matrixFile)   
 {
   int matrixSize;
   char size [ 256 ];
