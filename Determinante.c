@@ -15,7 +15,6 @@ int main ()
 {
   FILE *matrixFile;
   int i, j, matrixSize;
-  char size[256];
   int** matrix;
 
   matrixFile = fopen ( "matriz.in", "r" ); // read mode
