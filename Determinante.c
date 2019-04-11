@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <string.h>
 
-int obtainMatrixSize(FILE matrixFile)   //deseo parar el puntero hacia el archivo
+int obtainMatrixSize(FILE *matrixFile)   //deseo parar el puntero hacia el archivo
 {
   int matrixSize;
-
+  char size[256];
+  fscanf ( matrixFile, "%s", size ); // save matrix size from the file
+  matrixSize = atoi(size);
   return matrixSize;
 }
 
